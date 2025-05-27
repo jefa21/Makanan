@@ -11,7 +11,7 @@ Proyek ini berisi contoh animasi makanan dalam terminal menggunakan bahasa Pytho
 ## Fitur
 
 - **Animasi Terminal:** Menggunakan teknik ASCII untuk membuat animasi di terminal.
-- **Efek Visual:** Telor dengan efek berkedip/bergerak, pizza dengan rotasi slice dan penaburan topping.
+- **Efek Visual:** Telur dengan efek berkedip, pizza dengan rotasi slice dan penaburan topping.
 - **Implementasi Sederhana:** Ditulis dengan Python agar mudah dimengerti dan dimodifikasi.
 
 ## Petunjuk Penggunaan

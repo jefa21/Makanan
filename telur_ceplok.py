@@ -1,4 +1,4 @@
-# Telor Ceplok ASCII bergerak di terminal
+# Telur Ceplok ASCII berkedip di terminal
 # Dibuat oleh Jefanniel Nathan
 # Terinspirasi dari teknik ASCII Donut (Andy Sloane)
 import os
