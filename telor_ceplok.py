@@ -1,4 +1,6 @@
-
+# Telor Ceplok ASCII bergerak di terminal
+# Dibuat oleh Jefanniel Nathan
+# Terinspirasi dari teknik ASCII Donut (Andy Sloane)
 import os
 import time
 
