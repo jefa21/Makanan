@@ -2,23 +2,28 @@ import os
 import time
 import math
 
+# Lapisan burger tanpa teks (hanya bentuk visual)
 lapisan = [
-    "   _______   ",  # Roti atas
-    "  /       \\  ",
-    " |  ROTI   | ",
-    " |  SELADA | ",
-    " |  TOMAT  | ",
-    " |  KEJU   | ",
-    " |  DAGING | ",
-    " \\_______/  ",  # Roti bawah
+    "   ███████   ",  # Roti atas
+    "  █████████  ",
+    " ███████████ ",  # Selada
+    " ███████████ ",  # Tomat
+    " ███████████ ",  # Keju
+    " ███████████ ",  # Daging
+    "  █████████  ",
+    "   ███████   ",  # Roti bawah
 ]
 
+# Warna ANSI untuk masing-masing lapisan
 warna = [
-    "\033[93m",  # kuning muda (roti)
-    "\033[92m",  # hijau (selada)
-    "\033[91m",  # merah (tomat)
-    "\033[93m",  # kuning (keju)
-    "\033[95m",  # ungu (daging)
+    "\033[93m",  # Roti atas
+    "\033[93m",  # Roti atas bawah
+    "\033[92m",  # Selada
+    "\033[91m",  # Tomat
+    "\033[93m",  # Keju
+    "\033[95m",  # Daging
+    "\033[93m",  # Roti bawah
+    "\033[93m",  # Roti bawah
 ]
 
 RESET = "\033[0m"
@@ -29,42 +34,27 @@ def bersihkan():
 def tampilinBurger(berapaLapisan):
     bersihkan()
     for i in range(berapaLapisan):
-        baris = lapisan[i]
-        # Tambahkan warna sesuai urutan lapisan
-        if "ROTI" in baris:
-            warnaTeks = warna[0]
-        elif "SELADA" in baris:
-            warnaTeks = warna[1]
-        elif "TOMAT" in baris:
-            warnaTeks = warna[2]
-        elif "KEJU" in baris:
-            warnaTeks = warna[3]
-        elif "DAGING" in baris:
-            warnaTeks = warna[4]
-        else:
-            warnaTeks = RESET
-        print(warnaTeks + baris + RESET)
+        warnaTeks = warna[i] if i < len(warna) else RESET
+        print(warnaTeks + lapisan[i] + RESET)
     print()
 
 def putarBurger():
-    bersihkan()
     sudut = 0
-    for _ in range(50):
+    for _ in range(60):
         bersihkan()
-        print("BURGER BERPUTAR!\n")
+        print("🍔 BURGER MUTER DULU!\n")
         for i in range(len(lapisan)):
-            geser = int(10 * math.sin(sudut + i))
-            spasi = " " * (10 + geser)
-            baris = lapisan[i]
-            print(spasi + baris)
-        time.sleep(0.05)
+            offset = int(10 * math.sin(sudut + i))
+            spasi = " " * (10 + offset)
+            print(spasi + warna[i] + lapisan[i] + RESET)
+        time.sleep(0.04)
         sudut += 0.3
 
-def burgerMeledak():
+def burgerSleketew():
     bersihkan()
     for i in range(len(lapisan)):
-        geser = " " * (i * 3)
-        print(f"{geser}{lapisan[i]}")
+        spasi = " " * (i * 3)
+        print(spasi + warna[i] + lapisan[i] + RESET)
         time.sleep(0.1)
 
 # Animasi utama
@@ -72,10 +62,8 @@ def main():
     for i in range(1, len(lapisan) + 1):
         tampilinBurger(i)
         time.sleep(0.3)
-
     putarBurger()
-
-    burgerMeledak()
+    burgerSleketew()
 
 if __name__ == "__main__":
     main()
